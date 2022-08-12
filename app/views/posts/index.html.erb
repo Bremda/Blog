@@ -1,0 +1,28 @@
+<title>Posts</title>
+
+<p style="color: green"><%= notice %></p>
+<div class="header">
+  <h1>Posts</h1>
+</div>
+<div class="mt-1 d-flex justify-content-end">
+  <% if user_signed_in? %>
+    <%= link_to "New post", new_post_path, class: "btn btn-dark" %>
+  <% end %>
+</div>
+<div id="posts">
+  <% @posts.each do |post| %>
+    <div class="card" style="width: 18rem; margin:1%; border:none">
+      <div class="card-body shadow p-3 mb-5 bg-body rounded" >
+        <h5 class="card-title">
+          <%= render post %>
+        </h5>
+        <p>
+          <%= link_to "Show this post", post, class:"btn btn-dark" %>
+          <% if user_signed_in? %>
+            <%= link_to "Delete", post, "data-turbo-method" => :delete, class:"btn btn-dark"  %>
+          <% end %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>
