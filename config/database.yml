@@ -38,7 +38,6 @@ test:
   timeout: 5000
 
 production:
-  <<: *default
   adapter: postgresql
   encoding: unicode
   pool: 5
