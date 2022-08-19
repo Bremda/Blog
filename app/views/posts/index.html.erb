@@ -1,4 +1,4 @@
-<title>Posts</title>
+<% provide(:title, "Home") %>
 
 <p style="color: green"><%= notice %></p>
 <div class="header">
@@ -19,7 +19,8 @@
         <p>
           <%= link_to "Show this post", post, class:"btn btn-dark" %>
           <% if user_signed_in? %>
-            <%= link_to "Delete", post, "data-turbo-method" => :delete, class:"btn btn-dark"  %>
+            <%= link_to "Delete", post, "data-turbo-method" => :delete, class:"btn btn-dark"%>
+            <%= link_to "Edit", edit_post_path(post), class:"btn btn-dark"%>
           <% end %>
         </p>
       </div>
